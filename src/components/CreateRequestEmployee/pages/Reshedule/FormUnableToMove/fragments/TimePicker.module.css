@@ -1,0 +1,24 @@
+.root {
+  --border-radius: 8px;
+  --item-px: 8px;
+  --item-py: 2px;
+  --item-bg: rgb(239, 239, 239);
+  background: rgb(247, 247, 247);
+  padding: var(--item-py) 0;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.root > *:nth-child(2) {
+  padding: 0 5px;
+}
+
+.root > *:nth-child(1), .root > *:nth-child(3) {
+  letter-spacing: 0;
+  line-height: normal;
+  background: var(--item-bg);
+  padding: var(--item-py) var(--item-px);
+  border-radius: var(--border-radius);
+}

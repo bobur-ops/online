@@ -1,0 +1,26 @@
+.root {
+  --size: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(var(--background-rgb));
+}
+
+.root > * {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.root > :global(.adm-spin-loading) {
+  --size: inherit;
+}
+
+.root > span {
+  text-align: center;
+  top: calc(50% + var(--size) * 0.5 + 10px);
+  transform: translate(-50%, 0);
+}

@@ -1,0 +1,16 @@
+.root {
+  --offset: 5px;
+  --size: 30px;
+  position: absolute;
+  right: var(--offset);
+  top: var(--offset);
+  width: var(--size);
+  height: var(--size);
+  display: block;
+  opacity: 0.5;
+}
+
+.root > :global(.react-icon) {
+  width: 100%;
+  height: 100%;
+}

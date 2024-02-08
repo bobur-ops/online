@@ -1,0 +1,40 @@
+.root {
+  height: 46px;
+  background: rgba(var(--input-bg-rgba));
+  border-radius: var(--radius);
+  border-width: 1px;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+}
+
+.value {
+  flex: 1 1 0%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.root :global(.react-icon) {
+  flex-shrink: 0;
+}
+
+.calendar-desktop > :global(.adm-picker-view-column):nth-child(1),
+.calendar-mobile :global(.adm-picker-view) > :global(.adm-picker-view-column):nth-child(1) {
+  order: 3;
+}
+
+.calendar-desktop > :global(.adm-picker-view-column):nth-child(2),
+.calendar-mobile :global(.adm-picker-view) > :global(.adm-picker-view-column):nth-child(2) {
+  order: 2;
+}
+
+.calendar-desktop > :global(.adm-picker-view-column):nth-child(3),
+.calendar-mobile :global(.adm-picker-view) > :global(.adm-picker-view-column):nth-child(3) {
+  order: 1;
+}

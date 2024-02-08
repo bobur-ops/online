@@ -1,0 +1,158 @@
+.holder {
+  --fields-gap: 10px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background: linear-gradient(180deg, #F6F7F8 0%, #CEDFF1 53.12%, #AACBEB 100%);
+}
+
+.holder > main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(calc(100% - 2rem), 400px);
+  background: white;
+  border-radius: 0.4rem;
+  box-shadow: 0px 0px 30px 0px #00000026;
+  padding: 2rem;
+}
+
+.holder h1 {
+  font-family: 'SF Pro Rounded';
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.holder h2 {
+  text-align: center;
+  color: hsla(220, 28%, 47%, 1);
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+
+.holder > *:last-child { 
+  margin-bottom: 0;
+}
+
+.holder > main > *:last-child {
+  margin-bottom: 0;
+}
+
+/* .holder input {
+  height: 46px;
+  width: 225px;
+  border: 1px solid #D2DAE2;
+  padding: 0 0.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  outline-offset: -2px;
+} */
+
+/* .holder input:focus {
+  outline: 2px solid #0055FE;
+} */
+
+.underground {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, calc(100% + 10px));
+  color: color-mix(in srgb, rgb(var(--primary-rgb)), transparent 50%);
+}
+
+.error {
+  text-align: center;
+  color: rgb(var(--error-rgb));
+}
+
+.step0-mobile label, .step0-desktop aside label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.step0-desktop {
+  --aside-width: 360px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.step0-desktop aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--aside-width);
+  height: 100%;
+  padding: 1rem;
+  background: white;
+}
+
+.step-0-unmounted-spin {
+  --size: 50px;
+  color: rgb(var(--primary-rgb));
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.step2 form > * {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step2 form > *:last-child {
+  margin-bottom: 0;
+}
+
+.step2 form label {
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+
+.map {
+  position: absolute;
+  left: var(--aside-width);
+  top: 0;
+  width: calc(100% - var(--aside-width));
+  height: 100%;
+}
+
+.map > * {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.map-icon {
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--radius);
+  width: 48px;
+  height: 48px;
+  align-self: flex-start;
+  position: relative;
+  cursor: pointer;
+}
+
+.map-icon > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+}

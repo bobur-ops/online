@@ -1,0 +1,40 @@
+/* .holder input {
+  height: 46px;
+  width: 225px;
+  border: 1px solid #D2DAE2;
+  padding: 0 0.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+} */
+
+/* .holder input:focus {
+  outline: 2px solid #0055FE;
+} */
+
+.mobile-popup :global(.adm-picker) {
+  margin-bottom: var(--picker-margin-bottom);
+  overflow: visible;
+}
+
+.mobile-popup .picker-search-bar {
+  --px: 12px;
+  --pb: calc((var(--picker-margin-bottom) - var(--height)) / 2);
+  position: absolute;
+  bottom: calc(var(--pb) - var(--picker-margin-bottom));
+  left: var(--px);
+  width: calc(100% - 2 * var(--px));
+}
+
+.custom-select {
+  width: 100%;
+  height: 48px;
+}
+
+.custom-select :global(.ant-select-selector) {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.custom-select:global(.mobile) input {
+  display: none;
+}

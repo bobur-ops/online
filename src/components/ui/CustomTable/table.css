@@ -1,0 +1,56 @@
+table {
+  --th-radius: 12px;
+  --gap-y: 10px;
+  --gap-x: 10px;
+  width: 100%;
+  table-layout: auto;
+  border-spacing: 0;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  font-family: "SF Pro Rounded";
+}
+table th {
+  padding: 5px 0px;
+  background: hsla(0, 0%, 94%, 1);
+  color: hsla(260, 4%, 52%, 1);
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+table td {
+  padding: 5px 0px;
+  white-space: nowrap;
+}
+
+table th:last-child {
+  padding-right: 10px;
+}
+
+table td {
+  font-size: 14px;
+}
+
+table th:first-child {
+  border-top-left-radius: var(--th-radius);
+  border-bottom-left-radius: var(--th-radius);
+  padding-left: 20px;
+}
+
+table th:last-child {
+  border-top-right-radius: var(--th-radius);
+  border-bottom-right-radius: var(--th-radius);
+  padding-right: 20px;
+}
+table tr td:first-child {
+  border-top-left-radius: var(--th-radius);
+  border-bottom-left-radius: var(--th-radius);
+  padding-left: 20px;
+}
+table tr td:last-child {
+  border-top-right-radius: var(--th-radius);
+  border-bottom-right-radius: var(--th-radius);
+  padding-right: 20px;
+}

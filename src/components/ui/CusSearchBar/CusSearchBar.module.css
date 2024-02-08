@@ -1,0 +1,14 @@
+.clear-icon {
+  right: var(--px);
+  background: rgba(var(--input-bg-rgba));
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.clear-icon:hover {
+  background: color-mix(in srgb, rgba(var(--input-bg-rgba)), black 5%);
+}
+
+.clear-icon:global(.hidden) {
+  display: none;
+}

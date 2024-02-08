@@ -1,0 +1,129 @@
+.mask {
+  --z-index: 1000;
+}
+
+.root {
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--sidebar-width);
+  height: 100%;
+  background: white;
+  transition: width 200ms;
+  padding: var(--sidebar-p);
+  overflow: auto;
+}
+
+.root nav > *:not(:last-child) {
+  margin-bottom: var(--sidebar-p);
+}
+
+.root :global(.adm-collapse-panel-header) {
+  border-radius: var(--radius);
+  padding: 0;
+}
+
+.root :global(.adm-collapse-panel-header) :global(.adm-list-item-content-main) {
+  padding: 0;
+}
+
+.root :global(.adm-list-default) :global(.adm-list-body) {
+  border: none;
+}
+
+.root :global(.adm-list-item-content) {
+  border: none;
+}
+
+.root :global(.adm-collapse-panel-content) :global(.adm-list-item) {
+  padding-left: 40px;
+}
+
+.root :global(.adm-list-item-content-main) {
+  font-size: 1.2rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0;
+}
+
+.root :global(.adm-list-item-content-arrow) {
+  color: rgb(var(--secondary-rgb));
+}
+
+.root:global(.open) {
+  width: min(400px, 80vw);
+}
+
+.link {
+  display: block;
+  font-size: 1.2rem;
+  color: rgb(var(--foreground-rgb));
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.link:hover {
+  color: rgb(var(--secondary-rgb));
+}
+
+.avatar {
+  --avatar-size: calc(var(--sidebar-width) - 2 * var(--sidebar-p));
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  background: white;
+  margin: 10px auto;
+  margin-top: calc(10px - var(--sidebar-p));
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.root:global(.open) .avatar {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.avatar > * {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.root:global(.open) .avatar > * {
+  left: 0;
+  transform: translate(0, -50%);
+}
+
+.toggle-button {
+  display: block;
+  background: rgb(var(--secondary-rgb));
+  border-radius: var(--radius);
+  color: white;
+  padding: 5px;
+  width: calc(var(--sidebar-width) - 2 * var(--sidebar-p));
+  margin-top: 14px;
+  margin-bottom: 31px;
+  transition: margin-left 200ms;
+  font-size: 0.8rem;
+}
+
+.root:global(.open) .toggle-button {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .root :global(.adm-collapse-panel-content) :global(.adm-list-item) {
+    padding-left: 10px;
+  }
+}

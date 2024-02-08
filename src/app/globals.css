@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@font-face {
+  font-family: "SF Pro Rounded";
+  font-weight: 400;
+  src: url("/fonts/SF-Pro-Rounded-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "SF Pro Rounded";
+  font-weight: 700;
+  src: url("/fonts/SF-Pro-Rounded-Bold.otf") format("opentype");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button {
+  cursor: pointer;
+}
+
+:root:root {
+  --border-rgb: 208, 217, 225;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+
+  --radius: 6px;
+
+  --input-bg-rgba: 0, 0, 0, 0.037;
+  --primary-rgb: 0, 85, 254;
+  --secondary-rgb: 236, 121, 15;
+  --border-rgb: 200, 200, 200;
+  --cus-radius: var(--radius);
+  --placeholder-rgba: 0, 0, 0, 0.3;
+
+  --neutral-rgb: 141, 141, 141;
+  --error-rgb: 255, 56, 56;
+
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --adm-font-size-main: var(--adm-font-size-6);
+}
+
+* {
+  border-color: rgb(var(--border-rgb));
+}
+
+html {
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  font-size: 14pt;
+  min-height: 100dvh;
+  background: hsla(0, 0%, 94%, 1);
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-size: 1rem;
+}
+
+.focusable {
+  --focus-outline-color: rgb(var(--primary-rgb));
+  box-shadow: 0 0 0 0px transparent;
+  transition: box-shadow 100ms;
+}
+
+.focusable:focus,
+.focusable.focused {
+  box-shadow: 0 0 0 4px var(--focus-outline-color);
+}
+
+.react-icon {
+  --size: 20px;
+  width: var(--size);
+  height: var(--size);
+  flex-shrink: 0;
+}
+
+.antd-mobile-icon {
+  font-size: 20px;
+}
+.scrollbars {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  position: relative;
+}
+.checkbox :global(.adm-checkbox-icon) {
+  border-radius: 7px;
+}

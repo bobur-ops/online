@@ -1,0 +1,113 @@
+.root {
+  display: block;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 15px;
+}
+
+.main > * {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+}
+
+.root > .main > * > span {
+  display: inline;
+}
+
+.main > * > input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.main > * > input::file-selector-button {
+  cursor: inherit;
+}
+
+.main > * :global(.react-icon) {
+  --size: 40px;
+  color: rgb(var(--secondary-rgb));
+}
+
+.info-wrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--radius)
+}
+
+.total-info {
+  background: #f5f5f5;
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-info > .remove-all {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.total-info :global(.react-icon) {
+  color: rgb(var(--error-rgb));
+  cursor: pointer;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+  padding-top: 0;
+}
+
+.info > * {
+  background: #f5f5f5;
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info > * > span {
+  word-break: break-word;
+}
+
+.info > * > :global(.react-icon) {
+  color: rgb(var(--error-rgb));
+  cursor: pointer;
+}
+
+.root:global(.mobile) > .main > * > span {
+  display: none;
+}
+
+.root:global(.mobile) > .main > * :global(.react-icon) {
+  --size: 50px;
+  border: 2px solid rgb(var(--secondary-rgb));
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.root:global(.mobile) .remove-all > span {
+  display: none;
+}

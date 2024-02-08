@@ -1,0 +1,42 @@
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+}
+
+.bottom-grid > *:first-child {
+  justify-self: end;
+}
+
+.bottom-grid > *:first-child > * {
+  margin-left: auto;
+  width: fit-content;
+}
+
+.bottom-grid > *:first-child > * > label {
+  text-align: right;
+}
+
+.bottom-grid > *:last-child {
+  justify-self: start;
+}
+
+/* mobile */
+
+.bottom-grid:global(.mobile) {
+  grid-template-columns: 1fr;
+  gap: var(--gap-vertical);
+}
+
+.bottom-grid:global(.mobile) > *:first-child {
+  justify-self: start;
+}
+
+.bottom-grid:global(.mobile) > *:first-child > * {
+  margin-left: unset;
+  width: auto;
+}
+
+.bottom-grid:global(.mobile) > *:first-child > * > label {
+  text-align: left;
+}

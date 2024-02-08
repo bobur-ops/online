@@ -1,0 +1,12 @@
+.root {
+  display: block;
+}
+
+.root:hover {
+  text-decoration: underline;
+}
+
+.root:focus {
+  outline: none;
+  text-decoration: underline;
+}

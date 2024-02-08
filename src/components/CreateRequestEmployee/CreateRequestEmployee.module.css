@@ -1,0 +1,92 @@
+.root {
+  --offset: 20px;
+  --p: 20px;
+  width: min(100%, 800px);
+  height: fit-content;
+  padding: var(--offset);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+.content-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.content {
+  min-width: min(100%, 200px);
+  max-width: 100%;
+  min-height: 200px;
+}
+
+.desktop-nav {
+  --p: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%);
+  padding-top: var(--p);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.desktop-nav > button {
+  display: block;
+  background: rgb(var(--background-rgb));
+  padding: var(--p);
+  border: none;
+  font-size: inherit;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  cursor: pointer;
+}
+
+.desktop-nav > button:global(.active) {
+  background: rgb(var(--primary-rgb));
+  color: white;
+}
+
+
+.desktop-nav > button:not(:last-child) {
+  margin-bottom: var(--p);
+}
+
+.mobile-nav {
+  display: none;
+  margin-bottom: 10px;
+}
+
+.desktop-close-button {
+  display: block;
+}
+
+/* mobile */
+
+.root:global(.mobile) {
+  --offset: 10px;
+  width: min(100%, 500px);
+}
+
+.root:global(.mobile) .content-wrapper {
+  margin-top: 0;
+}
+
+.root:global(.mobile) .flex-wrapper {
+  justify-content: start;
+}
+
+.root:global(.mobile) .desktop-nav {
+  display: none;
+}
+
+.root:global(.mobile) .mobile-nav {
+  display: block;
+  color: white;
+}
+
+.root:global(.mobile) .desktop-close-button {
+  display: none;
+}

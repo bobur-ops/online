@@ -1,0 +1,6 @@
+.root {
+  background: rgb(var(--background-rgb));
+  box-shadow: 0 0 5px rgb(var(--neutral-rgb));
+  border-radius: var(--radius);
+  padding: 20px;
+}

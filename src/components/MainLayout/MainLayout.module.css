@@ -1,0 +1,11 @@
+.root {
+  --sidebar-width: 55px;
+  --sidebar-p: 10px;
+  width: 100%;
+  height: 100dvh;
+}
+
+.children-wrapper {
+  margin-left: var(--sidebar-width);
+  height: 100%;
+}
