@@ -57,4 +57,6 @@ const LegalEntitySelector = forwardRef<
   );
 });
 
+LegalEntitySelector.displayName = "LegalEntitySelector";
+
 export default LegalEntitySelector;

@@ -57,4 +57,6 @@ const CustomerSelector = forwardRef<
   );
 });
 
+CustomerSelector.displayName = "CustomerSelector";
+
 export default CustomerSelector;

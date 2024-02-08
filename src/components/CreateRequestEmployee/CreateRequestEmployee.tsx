@@ -56,8 +56,9 @@ export default function CreateRequestEmployee({
         {credentails.role !== "employee" && (
           <div>
             <CloseButton onClick={onClose} />
-            Данный компонент предназначен для пользователей с ролью "Сотрудник",
-            у Вашего пользователя роль "{roleMessageMap[credentails.role]}"
+            Данный компонент предназначен для пользователей с ролью
+            &quotСотрудник&quot, у Вашего пользователя роль&quot
+            {roleMessageMap[credentails.role]}&quot
           </div>
         )}
         {credentails.role === "employee" && (
@@ -89,9 +90,15 @@ export default function CreateRequestEmployee({
                 ))}
               </nav>
               <CusPaper className={styles["content"]}>
-                <h2 className="text-2xl text-center font-bold mb-4">Новая заявка</h2>
-                {page === "create" && <Create mobile={mobile} onDone={onClose} />}
-                {page === "reshedule" && <Reshedule mobile={mobile} onDone={onClose} />}
+                <h2 className="text-2xl text-center font-bold mb-4">
+                  Новая заявка
+                </h2>
+                {page === "create" && (
+                  <Create mobile={mobile} onDone={onClose} />
+                )}
+                {page === "reshedule" && (
+                  <Reshedule mobile={mobile} onDone={onClose} />
+                )}
                 {page === "cancel" && <Cancel onDone={onClose} />}
               </CusPaper>
             </div>
