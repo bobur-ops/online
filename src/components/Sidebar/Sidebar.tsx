@@ -7,6 +7,9 @@ import clsx from "clsx";
 import { useEffectOnce } from "usehooks-ts";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Button } from "antd";
+import FancyButton from "../ui/FancyButton";
+import { logout } from "@/services/accessToken";
 
 type NavItem = {
   url: string;
@@ -181,6 +184,11 @@ export default function Sidebar() {
     };
   });
 
+  const handleLogout = () => {
+    logout();
+    router.push("/");
+  };
+
   return (
     <>
       <Mask visible={open} className={styles["mask"]} />
@@ -195,15 +203,20 @@ export default function Sidebar() {
           {open ? "<<<" : ">>>"}
         </button>
         {open && (
-          <nav>
-            {navItems.map((item) => (
-              <Navitem
-                key={item.url}
-                item={item}
-                onLinkClick={() => setOpen(false)}
-              />
-            ))}
-          </nav>
+          <>
+            <nav>
+              {navItems.map((item) => (
+                <Navitem
+                  key={item.url}
+                  item={item}
+                  onLinkClick={() => setOpen(false)}
+                />
+              ))}
+            </nav>
+            <div className="w-full mt-3 flex justify-center">
+              <FancyButton onClick={handleLogout}>Выход</FancyButton>
+            </div>
+          </>
         )}
       </div>
     </>

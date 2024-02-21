@@ -1,6 +1,7 @@
 import { Table, Tbody, Td, Th, Thead, Tr } from "@/components/ui/CustomTable";
 import { Button, DatePicker, Input } from "antd";
 import React from "react";
+import locale from "antd/locale/ru_RU";
 
 const AgreementView = () => {
   return (
@@ -8,20 +9,21 @@ const AgreementView = () => {
       <div className="text-base mb-2">
         Согласовано: <span className="text-error">Нет</span>
       </div>
-      <div className="text-xs mb-2.5 lg:hidden">
+      <div className="text-sm mb-2.5 lg:hidden">
         Адрес: г.Москва, ул.Радужная, д.41
       </div>
       <div className="mb-5">
-        <div className="text-xs mb-2">Дата осмотра</div>
+        <div className="text-sm mb-2">Дата осмотра</div>
         <DatePicker
           className="w-full lg:w-auto"
           size="large"
           placeholder="Выберите дату.."
+          locale={locale.DatePicker}
           showTime
         />
       </div>
       <div className="mb-5">
-        <div className="text-xs mb-2">Сообщение</div>
+        <div className="text-sm mb-2">Сообщение</div>
         <Input />
       </div>
       <Table className="hidden lg:table">

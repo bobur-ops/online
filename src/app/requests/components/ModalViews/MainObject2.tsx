@@ -1,4 +1,5 @@
 import { Input, Select } from "antd";
+import { Checkbox } from "antd-mobile";
 import React from "react";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 
@@ -13,7 +14,7 @@ const MainObject2 = () => {
           Владелец:
           <span className="flex items-center">
             (Юр. лицо)
-            <IoIosCheckmarkCircle className="text-primary" />
+            <Checkbox className="w-5 h-5" />
           </span>
         </div>
         <div className="col-span-2">

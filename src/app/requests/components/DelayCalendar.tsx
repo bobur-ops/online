@@ -13,231 +13,286 @@ import { twMerge } from "tailwind-merge";
 const dayHours = [
   [
     {
+      id: "1",
       value: "10:00",
       booked: false,
     },
     {
+      id: "2",
       value: "10:40",
       booked: false,
     },
     {
+      id: "3",
       value: "11:20",
       booked: false,
     },
     {
+      id: "4",
       value: "12:00",
       booked: true,
     },
     {
+      id: "5",
       value: "12:40",
       booked: false,
     },
     {
+      id: "6",
       value: "13:20",
       booked: false,
     },
     {
+      id: "7",
       value: "14:00",
       booked: false,
     },
     {
+      id: "8",
       value: "15:20",
       booked: false,
     },
     {
+      id: "9",
       value: "16:00",
       booked: false,
     },
     {
+      id: "10",
       value: "16:40",
       booked: false,
     },
     {
+      id: "11",
       value: "17:20",
       booked: false,
     },
   ],
   [
     {
+      id: "12",
       value: "10:00",
       booked: false,
     },
     {
+      id: "13",
       value: "10:40",
       booked: false,
     },
     {
+      id: "14",
       value: "11:20",
       booked: true,
     },
     {
+      id: "15",
       value: "12:00",
       booked: false,
     },
     {
+      id: "16",
       value: "12:40",
       booked: false,
     },
     {
+      id: "17",
       value: "13:20",
       booked: false,
     },
     {
+      id: "18",
       value: "14:00",
       booked: false,
     },
     {
+      id: "19",
       value: "15:20",
       booked: true,
     },
     {
+      id: "20",
       value: "16:00",
       booked: false,
     },
     {
+      id: "21",
       value: "16:40",
       booked: false,
     },
     {
+      id: "22",
       value: "17:20",
       booked: false,
     },
   ],
   [
     {
+      id: "23",
       value: "10:00",
       booked: false,
     },
     {
+      id: "24",
       value: "10:40",
       booked: false,
     },
     {
+      id: "25",
       value: "11:20",
       booked: false,
     },
     {
+      id: "26",
       value: "12:00",
       booked: false,
     },
     {
+      id: "27",
       value: "12:40",
       booked: false,
     },
     {
+      id: "28",
       value: "13:20",
       booked: false,
     },
     {
+      id: "29",
       value: "14:00",
       booked: false,
     },
     {
+      id: "30",
       value: "15:20",
       booked: false,
     },
     {
+      id: "31",
       value: "16:00",
       booked: false,
     },
     {
+      id: "32",
       value: "16:40",
       booked: false,
     },
     {
+      id: "33",
       value: "17:20",
       booked: false,
     },
   ],
   [
     {
+      id: "34",
       value: "10:00",
       booked: false,
     },
     {
+      id: "35",
       value: "10:40",
       booked: false,
     },
     {
+      id: "36",
       value: "11:20",
       booked: false,
     },
     {
+      id: "37",
       value: "12:00",
       booked: false,
     },
     {
+      id: "38",
       value: "12:40",
       booked: false,
     },
     {
+      id: "39",
       value: "13:20",
       booked: true,
     },
     {
+      id: "40",
       value: "14:00",
       booked: false,
     },
     {
+      id: "41",
       value: "15:20",
       booked: false,
     },
     {
+      id: "42",
       value: "16:00",
       booked: true,
     },
     {
+      id: "43",
       value: "16:40",
       booked: false,
     },
     {
+      id: "44",
       value: "17:20",
       booked: false,
     },
   ],
   [
     {
+      id: "45",
       value: "10:00",
       booked: false,
     },
     {
+      id: "46",
       value: "10:40",
       booked: false,
     },
     {
+      id: "47",
       value: "11:20",
       booked: false,
     },
     {
+      id: "48",
       value: "12:00",
       booked: true,
     },
     {
+      id: "49",
       value: "12:40",
       booked: false,
       isCurrent: true,
     },
     {
+      id: "50",
       value: "13:20",
       booked: false,
     },
     {
+      id: "51",
       value: "14:00",
       booked: false,
     },
     {
+      id: "52",
       value: "15:20",
       booked: true,
     },
     {
+      id: "53",
       value: "16:00",
       booked: false,
     },
     {
+      id: "54",
       value: "16:40",
       booked: false,
     },
     {
+      id: "55",
       value: "17:20",
       booked: false,
     },
@@ -246,6 +301,7 @@ const dayHours = [
 
 const DelayCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
   const goToPreviousWeek = () => {
     setCurrentDate(subWeeks(currentDate, 1));
@@ -318,11 +374,12 @@ const DelayCalendar = () => {
                 <div
                   key={h_idx}
                   className={twMerge(
-                    "text-center text-sm lg:text-base font-semibold",
+                    "text-center text-sm lg:text-base font-semibold cursor-pointer transition-all",
                     hour.booked && "opacity-20",
-                    hour.isCurrent &&
+                    hour.id === selectedDate &&
                       "bg-primary rounded-[5px] text-white w-fit mx-auto min-w-[45px] lg:min-w-[73px]"
                   )}
+                  onClick={() => setSelectedDate(hour.id)}
                 >
                   {hour.value}
                 </div>

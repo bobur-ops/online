@@ -12,6 +12,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "@/app/globals.css";
 import Protected from "@/components/Protected";
 import MainLayout from "@/components/MainLayout";
+import { ConfigProvider } from "antd";
+import ruRU from "antd/locale/ru_RU";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,11 +29,13 @@ export default function AppWrapper(props: { children: ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <ReduxProvider store={store}>
         <AntdMobileConfigProvider locale={ruRU_mobile}>
-          <IconContext.Provider value={{ className: "react-icon" }}>
-            <Protected>
-              <MainLayout>{props.children}</MainLayout>
-            </Protected>
-          </IconContext.Provider>
+          <ConfigProvider locale={ruRU}>
+            <IconContext.Provider value={{ className: "react-icon" }}>
+              <Protected>
+                <MainLayout>{props.children}</MainLayout>
+              </Protected>
+            </IconContext.Provider>
+          </ConfigProvider>
         </AntdMobileConfigProvider>
         <ToastContainer />
       </ReduxProvider>

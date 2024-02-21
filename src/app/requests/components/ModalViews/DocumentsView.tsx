@@ -5,6 +5,7 @@ import { IoCameraOutline, IoSearchOutline } from "react-icons/io5";
 import { CiCamera } from "react-icons/ci";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { Button, Input } from "antd";
+import { Checkbox } from "antd-mobile";
 
 const MobileDocItem = () => {
   return (
@@ -17,10 +18,10 @@ const MobileDocItem = () => {
       </div>
       <div className="flex items-center gap-1">
         <div className="font-semibold">Оригинал</div>
-        <IoIosCheckmarkCircle className="text-primary" />
+        <Checkbox />
         <div className="text-xs">01.11.23 19:11</div>
         <div className="font-semibold">Копия</div>
-        <IoIosCheckmarkCircle className="text-primary" />
+        <Checkbox />
         <div className="text-xs">01.11.23 19:11</div>
       </div>
     </div>
@@ -52,22 +53,22 @@ const DocumentsView = () => {
                 <Td></Td>
                 <Td>
                   <div className="flex justify-center items-center gap-6">
-                    <IoSearchOutline className="text-secondary" />
+                    <IoSearchOutline className="text-secondary hover:opacity-60 transition-all cursor-pointer" />
 
-                    <GrAttachment className="text-secondary " />
-                    <IoCameraOutline className="text-secondary" />
+                    <GrAttachment className="text-secondary hover:opacity-60 transition-all cursor-pointer" />
+                    <IoCameraOutline className="text-secondary hover:opacity-60 transition-all cursor-pointer" />
                   </div>
                 </Td>
                 <Td>01.11.13 19:11</Td>
                 <Td align="center">
-                  <div className="flex items-center">
-                    <IoIosCheckmarkCircle className="text-primary" />
+                  <div className="flex items-center gap-1">
+                    <Checkbox />
                     <p>01.11.13 19:11</p>
                   </div>
                 </Td>
                 <Td align="center">
-                  <div className="flex items-center">
-                    <IoIosCheckmarkCircle className="text-primary" />
+                  <div className="flex items-center gap-1">
+                    <Checkbox />
                     <p>01.11.13 19:11</p>
                   </div>
                 </Td>

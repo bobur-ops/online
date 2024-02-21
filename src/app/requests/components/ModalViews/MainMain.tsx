@@ -17,7 +17,7 @@ const MainMain = () => {
     <div>
       <div className="space-y-2">
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Раздел:</div>
+          <div className="w-[154px] text-base">Раздел:</div>
           <div className="">
             <Select
               options={[{ label: "Автоэкспертиза", value: "Автоэкспертиза" }]}
@@ -27,7 +27,7 @@ const MainMain = () => {
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Подраздел:</div>
+          <div className="w-[154px] text-base">Подраздел:</div>
           <div className="">
             <Select
               options={[{ label: "Трасология", value: "Трасология" }]}
@@ -36,7 +36,7 @@ const MainMain = () => {
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Юридическое лицо:</div>
+          <div className="w-[154px] text-base">Юридическое лицо:</div>
           <div className="">
             <Select
               options={[
@@ -47,7 +47,7 @@ const MainMain = () => {
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Заказчик:</div>
+          <div className="w-[154px] text-base">Заказчик:</div>
           <div className="">
             <Select
               options={[
@@ -61,7 +61,7 @@ const MainMain = () => {
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Тип заявки:</div>
+          <div className="w-[154px] text-base">Тип заявки:</div>
           <div className="">
             <Select
               options={[
@@ -75,7 +75,7 @@ const MainMain = () => {
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Тип повреждения:</div>
+          <div className="w-[154px] text-base">Тип повреждения:</div>
           <div className="">
             <Select
               options={[
@@ -89,49 +89,49 @@ const MainMain = () => {
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Этап:</div>
-          <div className="font-mediumw-[154px] text-xs">Прием заявки</div>
+          <div className="w-[154px] text-base">Этап:</div>
+          <div className="font-mediumw-[154px] text-base">Прием заявки</div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Статус:</div>
-          <div className="font-mediumw-[154px] text-xs">В работе</div>
+          <div className="w-[154px] text-base">Статус:</div>
+          <div className="font-mediumw-[154px] text-base">В работе</div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Адрес:</div>
-          <div className="font-mediumw-[154px] text-xs">
+          <div className="w-[154px] text-base">Адрес:</div>
+          <div className="font-mediumw-[154px] text-base">
             г.Москва, ул.Р*, д.41
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Плановое время осмотра:</div>
-          <div className="font-mediumw-[154px] text-xs">31.12.2023 14:00</div>
+          <div className="w-[154px] text-base">Плановое время осмотра:</div>
+          <div className="font-mediumw-[154px] text-base">31.12.2023 14:00</div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Фактическое время осмотра:</div>
-          <div className="font-mediumw-[154px] text-xs">
+          <div className="w-[154px] text-base">Фактическое время осмотра:</div>
+          <div className="font-mediumw-[154px] text-base">
             <DatePicker showTime placeholder="" />
           </div>
         </div>
         <div className="hidden lg:flex items-center gap-6">
           <div className="flex items-center">
-            <div className="w-[154px] flex-shrink-0 text-xs">Расстояние:</div>
+            <div className="w-[154px] flex-shrink-0 text-base">Расстояние:</div>
             <Input className="w-[96px] rounded-[10px]" />
           </div>
           <div className="flex gap-[22px] items-center">
-            <div className="whitespace-nowrap w-[155px]w-[154px] text-xs">
+            <div className="whitespace-nowrap w-[155px]w-[154px] text-base">
               Фактическое расстояние:
             </div>
             <Input className="w-[96px] rounded-[10px]" />
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Ложный выезд:</div>
+          <div className="w-[154px] text-base">Ложный выезд:</div>
           <div className="">
             <Checkbox />
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs flex items-center">
+          <div className="w-[154px] text-base flex items-center">
             <p>Мошенник:</p>
             <Checkbox />
           </div>
@@ -143,7 +143,7 @@ const MainMain = () => {
           />
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Доп.параметры:</div>
+          <div className="w-[154px] text-base">Доп.параметры:</div>
           <div className="">
             <Select
               options={[
@@ -157,13 +157,13 @@ const MainMain = () => {
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Быстрая выплата:</div>
+          <div className="w-[154px] text-base">Быстрая выплата:</div>
           <div className="">
             <Checkbox />
           </div>
         </div>
         <div className="flex items-center ">
-          <div className="w-[154px] text-xs">Ремон на СТО:</div>
+          <div className="w-[154px] text-base">Ремон на СТО:</div>
           <div className="">
             <Checkbox />
           </div>
