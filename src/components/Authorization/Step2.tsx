@@ -1,16 +1,17 @@
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { AuthUserRole } from "@/lib/types";
+import { AuthUserRole, Credentials } from "@/lib/types";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import styles from "./Authorization.module.css";
 import FancyButton from "@/components/ui/FancyButton";
 import CusInput from "../ui/CusInput";
+import CusPassword from "@/components/ui/CusPassword";
 
 type Step2Props = {
   prev: () => void;
-  next: (email: string) => void;
+  next: (token: string, credentials: Credentials) => void;
   role: null | AuthUserRole;
   subsidiaryId: null | string;
 };
@@ -22,6 +23,9 @@ const schema = z.object({
       required_error: "Необходимо ввести электронную почту",
     })
     .email("Неверный формат электронной почты"),
+  password: z.string({
+    required_error: "Необходимо ввести пароль",
+  }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -30,11 +34,11 @@ export default function Step2({ prev, next, role, subsidiaryId }: Step2Props) {
   const [loading, setLoading] = useState(false);
 
   const { control, handleSubmit, formState } = useForm<FormData>({
-    defaultValues: { email: "" },
+    defaultValues: { email: "", password: "" },
     resolver: zodResolver(schema),
   });
 
-  const checkEmail = async ({ email }: FormData) => {
+  const checkEmail = async ({ email, password }: FormData) => {
     if (subsidiaryId == null) {
       toast("Филиал не выбран", { type: "error" });
       return;
@@ -52,7 +56,7 @@ export default function Step2({ prev, next, role, subsidiaryId }: Step2Props) {
         subsidiaryId,
       }),
     });
-    setLoading(false);
+
     if (res.status !== 200) {
       toast(res.status + " " + res.statusText, {
         type: "error",
@@ -68,7 +72,29 @@ export default function Step2({ prev, next, role, subsidiaryId }: Step2Props) {
       });
       return;
     }
-    next(email);
+    const res2 = await fetch("/api/auth/signin", {
+      method: "post",
+      body: JSON.stringify({ email, password }),
+    });
+    setLoading(false);
+    if (res2.status === 401) {
+      toast("Пароль указан неверно", {
+        type: "error",
+        position: "bottom-center",
+      });
+      return;
+    }
+    if (res2.status !== 200) {
+      toast(res.status + " " + res.statusText, {
+        type: "error",
+        position: "bottom-center",
+      });
+      return;
+    }
+
+    const body2 = await res2.json();
+
+    next(body2.token, body2.credentials);
   };
 
   return (
@@ -98,7 +124,32 @@ export default function Step2({ prev, next, role, subsidiaryId }: Step2Props) {
           )}
         </div>
 
-        <FancyButton className="mx-auto" loading={loading}>Войти</FancyButton>
+        <label>
+          Пароль<span className={styles["error"]}>*</span>
+        </label>
+
+        <div className="mb-4">
+          <Controller
+            control={control}
+            name="password"
+            render={({ field }) => (
+              <CusPassword
+                {...field}
+                classes={{ root: "mb-4" }}
+                styles={{ root: { width: "100%" } }}
+              />
+            )}
+          />
+          {formState.errors.password && (
+            <span className="text-center text-error mt-1">
+              {formState.errors.password.message}
+            </span>
+          )}
+        </div>
+
+        <FancyButton className="mx-auto" loading={loading}>
+          Войти
+        </FancyButton>
       </form>
       <button onClick={() => prev()} className={styles["underground"]}>
         назад

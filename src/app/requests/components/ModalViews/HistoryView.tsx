@@ -9,7 +9,7 @@ const HistoryView = () => {
       <Table className="hidden lg:table">
         <Thead>
           <Tr>
-            <Th>№ заявки</Th>
+            {/* <Th>№ заявки</Th> */}
             <Th></Th>
             <Th>Менеджер</Th>
             <Th>Заказчик</Th>
@@ -24,7 +24,7 @@ const HistoryView = () => {
         </Thead>
         <Tbody>
           <Tr>
-            <Td>2140523</Td>
+            {/* <Td>2140523</Td> */}
             <Td>
               <GrAttachment className="text-secondary" />
             </Td>

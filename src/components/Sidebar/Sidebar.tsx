@@ -42,28 +42,28 @@ const navItems: NavItem[] = [
         label: "Предварительная запись",
       },
       {
-        url: "/personal-account/journal-blocked-entries",
-        label: "Журнал блокировок записи осмотров",
-      },
-      {
         url: "/personal-account/coordinate-departure",
         label: "Согласовать выезд",
       },
-      {
-        url: "/personal-account/auto-examination",
-        label: "Автоэкспертиза",
-      },
-      {
-        url: "/personal-account/rating",
-        label: "Оценка",
-      },
+      // {
+      //   url: "/personal-account/auto-examination",
+      //   label: "Автоэкспертиза",
+      // },
+      // {
+      //   url: "/personal-account/rating",
+      //   label: "Оценка",
+      // },
       {
         url: "/personal-account/progress-ratings",
-        label: "Заявки на обработке",
+        label: "Заявки на обработку",
       },
       {
         url: "/personal-account/create-claim",
         label: "Создать претензию",
+      },
+      {
+        url: "/personal-account/journal-blocked-entries",
+        label: "Журнал блокировок записи осмотров",
       },
       // {
       //   url: "/personal-account/claims/create",
@@ -83,22 +83,22 @@ const navItems: NavItem[] = [
         url: "/requests",
         label: "Все заявки",
       },
-      {
-        url: "/requests/in-progress",
-        label: "На обработке",
-      },
-      {
-        url: "/requests/create",
-        label: "Прием заявки",
-      },
-      {
-        url: "/requests/search",
-        label: "Расширенный поиск",
-      },
-      {
-        url: "/requests/history",
-        label: "История отработанных заявок",
-      },
+      // {
+      //   url: "/requests/in-progress",
+      //   label: "На обработке",
+      // },
+      // {
+      //   url: "/requests/create",
+      //   label: "Прием заявки",
+      // },
+      // {
+      //   url: "/requests/search",
+      //   label: "Расширенный поиск",
+      // },
+      // {
+      //   url: "/requests/history",
+      //   label: "История отработанных заявок",
+      // },
     ],
   },
   {
@@ -113,10 +113,10 @@ const navItems: NavItem[] = [
         url: "/references/branches",
         label: "Филиалы",
       },
-      {
-        url: "/references/jobs",
-        label: "Работы",
-      },
+      // {
+      //   url: "/references/jobs",
+      //   label: "Работы",
+      // },
       {
         url: "/references/insurance-companies",
         label: "Страховые компании",

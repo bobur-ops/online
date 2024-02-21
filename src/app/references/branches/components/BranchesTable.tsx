@@ -13,18 +13,29 @@ import EditBranchModal from "./EditBranchModal";
 const BranchesTable = () => {
   const [search, setSearch] = useState("");
   const [isEditModal, setIsEditModal] = useState(false);
+  const [isCreatingBranch, setIsCreatingBranch] = useState(false);
 
   return (
-    <div className="px-5 py-7 rounded-3xl bg-white space-y-[18px] h-[50vh] flex flex-col">
+    <div className="px-5 py-7 rounded-3xl bg-white space-y-[18px] h-full  lg:h-[50vh] flex flex-col">
       <EditBranchModal
         open={isEditModal}
-        onCancel={() => setIsEditModal(false)}
+        onCancel={() => {
+          setIsEditModal(false);
+          setIsCreatingBranch(false);
+        }}
+        isCreatingBranch={isCreatingBranch}
       />
-      <div className="flex flex-col lg:flex-row justify-between lg:items-center">
-        <div className="text-[28px]">Страховые компании</div>
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center ">
+        <div className="text-[28px]">Филиалы</div>
         <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-8">
           <div className="divide-x-2 divide-[#DCDBDD] flex h-[38px] border-2 border-[#DCDBDD] rounded-xl">
-            <div className="cursor-pointer flex items-center gap-2.5 py-1.5 px-6">
+            <div
+              className="cursor-pointer flex items-center gap-2.5 py-1.5 px-6"
+              onClick={() => {
+                setIsEditModal(true);
+                setIsCreatingBranch(true);
+              }}
+            >
               <FcPlus />
               Добавить
             </div>
@@ -84,13 +95,13 @@ const BranchesTable = () => {
         </Table>
         <div className="lg:hidden">
           <div className="bg-[#EFEFEF] p-2.5 rounded-xl">
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex flex-wrap items-center justify-between mb-2">
               <div className="text-base">АО “АльфаСтрахование”</div>
               <div className="">
                 <FaEdit />
               </div>
             </div>
-            <div className="grid gap-2 grid-cols-2">
+            <div className="grid  gap-2 md:grid-cols-2">
               <div className="">
                 <div className="font-medium">Город</div>
                 <div className="">Адыгея</div>

@@ -18,7 +18,7 @@ function MobileStep0({ next }: Step0Props) {
   return (
     <main className={styles["step0-mobile"]}>
       <h1>Филиалы</h1>
-      <h2>Выберите филиал</h2>
+      {/* <h2>Выберите филиал</h2> */}
       <label>Город</label>
       <div className="flex gap-2 mb-4">
         <TownSelector
@@ -69,7 +69,7 @@ function DesktopStep0({ next }: Step0Props) {
     <div className={styles["step0-desktop"]}>
       <aside>
         <h1>Филиалы</h1>
-        <h2>Выберите филиал</h2>
+        {/* <h2>Выберите филиал</h2> */}
         <label>Город</label>
         <TownSelector
           classes={{ root: "mb-4" }}

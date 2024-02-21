@@ -50,9 +50,10 @@ const RequestsTable = () => {
   const [isEditModal, setIsEditModal] = useState(false);
   const [search, setSearch] = useState("");
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const [selectedTab, setSelectedTab] = useState(0);
 
   return (
-    <div>
+    <div className="h-full">
       <EditRequestModal
         open={isEditModal}
         onCancel={() => setIsEditModal(false)}
@@ -62,16 +63,22 @@ const RequestsTable = () => {
           <div
             key={index}
             className={twMerge(
-              "max-w-[173px] bg-white rounded-t-xl py-[5px] px-[14px] flex justify-center items-center"
+              "max-w-[173px] bg-white rounded-t-xl py-[5px] px-[14px] flex justify-center items-center cursor-pointer"
             )}
+            onClick={() => setSelectedTab(index)}
           >
-            <div className={twMerge("text-center font-medium opacity-50")}>
+            <div
+              className={twMerge(
+                "text-center font-medium opacity-50 transition-all",
+                index === selectedTab && "opacity-100"
+              )}
+            >
               {f.label}
             </div>
           </div>
         ))}
       </div>
-      <div className="px-5 py-7 rounded-3xl bg-white space-y-[18px] h-[50vh] flex flex-col">
+      <div className="px-5 py-7 rounded-3xl bg-white space-y-[18px] h-full lg:h-[50vh] flex flex-col">
         <div className="flex-col md:flex-row flex justify-between md:items-center gap-5">
           <div className="text-[28px] md:pl-10">Заявки</div>
           <div className="flex items-center gap-5">
@@ -94,11 +101,11 @@ const RequestsTable = () => {
                 className="p-2.5 rounded-xl bg-[#DDFFD1]"
                 onClick={() => setIsEditModal(true)}
               >
-                <div className="flex justify-between items-center mb-1.5">
+                <div className="flex justify-between items-center flex-wrap mb-1.5">
                   <span className="text-lg">АО “АльфаСтрахование”</span>
                   <div className="text-lg">№2140256</div>
                 </div>
-                <div className="grid grid-cols-3 gap-2.5">
+                <div className="grid md:grid-cols-3 gap-2.5">
                   <div className="grid grid-cols-3 text-xs col-span-2 gap-y-[3px]">
                     <div className="font-semibold">Менеджер</div>
                     <div className="col-span-2">Кашин М.В.</div>
@@ -121,11 +128,11 @@ const RequestsTable = () => {
                 className="p-2.5 rounded-xl bg-[#FFD1CE]"
                 onClick={() => setIsEditModal(true)}
               >
-                <div className="flex justify-between items-center mb-1.5">
+                <div className="flex justify-between flex-wrap items-center mb-1.5">
                   <span className="text-lg">АО “АльфаСтрахование”</span>
                   <div className="text-lg">№2140256</div>
                 </div>
-                <div className="grid grid-cols-3 gap-2.5">
+                <div className="grid md:grid-cols-3 gap-2.5">
                   <div className="grid grid-cols-3 text-xs col-span-2 gap-y-[3px]">
                     <div className="font-semibold">Менеджер</div>
                     <div className="col-span-2">Кашин М.В.</div>

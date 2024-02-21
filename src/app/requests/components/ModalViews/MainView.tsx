@@ -63,7 +63,7 @@ const MainView = () => {
         </div>
         <div
           className={twMerge(
-            "transition-all cursor-pointer py-2 h-[48px] flex text-xl items-center justify-center w-full text-center bg-[#DADADA] rounded-r-[15px]",
+            "transition-all cursor-pointer py-2 h-[48px] flex text-xl items-center justify-center w-full text-center bg-[#DADADA] rounded-r-[15px] text-error",
             currentTab === "Объект" && "bg-white"
           )}
           onClick={() => setCurrentTab("Объект")}
@@ -72,7 +72,7 @@ const MainView = () => {
         </div>
         <div
           className={twMerge(
-            "transition-all cursor-pointer py-2 h-[48px] flex text-xl items-center justify-center w-full text-center bg-[#DADADA] rounded-r-[15px]",
+            "transition-all cursor-pointer py-2 h-[48px] flex text-xl items-center justify-center w-full text-center bg-[#DADADA] rounded-r-[15px] text-error",
             currentTab === "Объект 2" && "bg-white"
           )}
           onClick={() => setCurrentTab("Объект 2")}

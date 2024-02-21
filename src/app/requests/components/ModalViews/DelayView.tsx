@@ -7,7 +7,7 @@ const DelayView = () => {
     <div>
       <div>
         <div className="text-center font-semibold text-base">
-          Перенос осмотраd
+          Перенос осмотра
         </div>
         <div className="text-center font-semibold">03.08.2023 12:00</div>
       </div>
@@ -16,7 +16,7 @@ const DelayView = () => {
           variant="borderless"
           value={"Екатеринбург (Викулова)"}
           className="mx-auto"
-          rootClassName="text-[22px]"
+          size="large"
         />
       </div>
       <div className="mb-10">
@@ -28,7 +28,7 @@ const DelayView = () => {
       </div>
       <div className="mb-5">
         <div className="text-xs mb-2">Новая дата</div>
-        <DatePicker size="large" />
+        <DatePicker size="large" placeholder="" />
       </div>
       <div className="flex justify-center">
         <Button className="min-w-[193px]" danger size="large">

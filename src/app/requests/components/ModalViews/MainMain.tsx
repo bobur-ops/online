@@ -109,7 +109,7 @@ const MainMain = () => {
         <div className="flex items-center ">
           <div className="w-[154px] text-xs">Фактическое время осмотра:</div>
           <div className="font-mediumw-[154px] text-xs">
-            <DatePicker placeholder="" />
+            <DatePicker showTime placeholder="" />
           </div>
         </div>
         <div className="hidden lg:flex items-center gap-6">

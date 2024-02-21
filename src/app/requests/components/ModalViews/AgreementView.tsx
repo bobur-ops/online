@@ -17,6 +17,7 @@ const AgreementView = () => {
           className="w-full lg:w-auto"
           size="large"
           placeholder="Выберите дату.."
+          showTime
         />
       </div>
       <div className="mb-5">
@@ -54,7 +55,7 @@ const AgreementView = () => {
           <div className="">“Согласование в филиале города Москвы и т.д.”</div>
         </div>
       </div>
-      <div className="flex justify-center w-full mt-8 lg:hidden">
+      <div className="flex justify-center w-full mt-8">
         <Button size="large" type="primary" ghost>
           Предложить дату
         </Button>

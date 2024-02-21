@@ -33,15 +33,13 @@ const DocumentsView = () => {
       <Table className="hidden lg:table">
         <Thead>
           <Tr>
-            <Th>Названия бланков</Th>
+            <Th>Документы</Th>
             <Th>Интеграция</Th>
             <Th align="center">@</Th>
             <Th></Th>
             <Th>Дата</Th>
             <Th align="center">Оригинал</Th>
             <Th align="center">Копия</Th>
-            <Th align="center">Возврат</Th>
-            <Th align="center">Исправлено</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -53,7 +51,7 @@ const DocumentsView = () => {
                 <Td></Td>
                 <Td></Td>
                 <Td>
-                  <div className="flex justify-center items-center gap-2">
+                  <div className="flex justify-center items-center gap-6">
                     <IoSearchOutline className="text-secondary" />
 
                     <GrAttachment className="text-secondary " />
@@ -61,25 +59,13 @@ const DocumentsView = () => {
                   </div>
                 </Td>
                 <Td>01.11.13 19:11</Td>
-                <Td>
+                <Td align="center">
                   <div className="flex items-center">
                     <IoIosCheckmarkCircle className="text-primary" />
                     <p>01.11.13 19:11</p>
                   </div>
                 </Td>
-                <Td>
-                  <div className="flex items-center">
-                    <IoIosCheckmarkCircle className="text-primary" />
-                    <p>01.11.13 19:11</p>
-                  </div>
-                </Td>
-                <Td>
-                  <div className="flex items-center">
-                    <IoIosCheckmarkCircle className="text-primary" />
-                    <p>01.11.13 19:11</p>
-                  </div>
-                </Td>
-                <Td>
+                <Td align="center">
                   <div className="flex items-center">
                     <IoIosCheckmarkCircle className="text-primary" />
                     <p>01.11.13 19:11</p>
@@ -102,11 +88,11 @@ const DocumentsView = () => {
           <Input className="max-w-[465px]" />
         </div>
       </div>
-      <div className="mt-5 space-y-5">
+      <div className="mt-5 space-y-5 lg:hidden">
         <MobileDocItem />
         <MobileDocItem />
       </div>
-      <div className="space-y-[35px] flex flex-col items-center mt-8">
+      <div className="space-y-[35px] flex lg:hidden flex-col items-center mt-8">
         <Button type="primary" ghost size="large">
           Подтвердить
         </Button>

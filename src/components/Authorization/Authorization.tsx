@@ -55,12 +55,12 @@ export default function Authorization() {
       {step === 2 && (
         <Step2
           prev={handlePrevStep2}
-          next={handleNextStep2}
+          next={handleNextStep3}
           role={role}
           subsidiaryId={subsidiaryId}
         />
       )}
-      {step === 3 && (
+      {/* {step === 3 && (
         <Step3
           prev={handlePrevStep3}
           next={handleNextStep3}
@@ -68,7 +68,7 @@ export default function Authorization() {
           subsidiaryId={subsidiaryId}
           email={email}
         />
-      )}
+      )} */}
     </div>
   );
 }

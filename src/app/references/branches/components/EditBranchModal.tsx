@@ -6,12 +6,14 @@ import { MdOutlineFileUpload } from "react-icons/md";
 import { Table, Tbody, Td, Th, Thead, Tr } from "@/components/ui/CustomTable";
 import FancyButton from "@/components/ui/FancyButton";
 
-const EditBranchModal = (props: ModalProps) => {
+const EditBranchModal = (props: ModalProps & { isCreatingBranch: boolean }) => {
   return (
     <Modal footer={false} centered width={1000} {...props}>
       <div>
         <div className="text-center font-semibold text-2xl mb-5">
-          Редактирование филиала
+          {props.isCreatingBranch
+            ? "Создание филиала"
+            : "Редактирование филиала"}
         </div>
         <form className="space-y-5">
           <div className="grid grid-cols-3 gap-5">

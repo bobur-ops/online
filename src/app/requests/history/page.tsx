@@ -49,26 +49,34 @@ const Page = () => {
         </div>
         <div className="lg:hidden">
           <div className="bg-[#EFEFEF] p-2.5 rounded-xl">
-            <div className="flex justify-between items-center mb-2.5">
+            <div className="flex justify-between flex-wrap items-center mb-2.5">
               <div className="text-xl">АО “АльфаСтрахование”</div>
               <div className="text-xl">№ 2140256</div>
             </div>
-            <div className="grid grid-cols-4 gap-1">
-              <div className="text-xs font-semibold">Тип заявки</div>
-              <div className=" col-span-3">
-                <FaCar />
+            <div className="space-y-2.5">
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-semibold">Тип заявки</div>
+                <div className="">
+                  <FaCar />
+                </div>
               </div>
-              <div className="text-xs font-semibold">Менеджер</div>
-              <div className="text-xs col-span-3">Кашин М.В.</div>
-              <div className="text-xs font-semibold">Адрес</div>
-              <div className="text-xs col-span-3">
-                г. Москва, ул. Радужная, д.40
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-semibold">Менеджер</div>
+                <div className="text-xs ">Кашин М.В.</div>
               </div>
-              <div className="text-xs font-semibold">Марка</div>
-              <div className="text-xs col-span-3">Audi</div>
-              <div className="text-xs font-semibold">Модель</div>
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-semibold">Адрес</div>
+                <div className="text-xs ">г. Москва, ул. Радужная, д.40</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-semibold">Марка</div>
+                <div className="text-xs ">Audi</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-semibold">Модель</div>
 
-              <div className="text-xs col-span-3"> RS6</div>
+                <div className="text-xs "> RS6</div>
+              </div>
             </div>
           </div>
         </div>
