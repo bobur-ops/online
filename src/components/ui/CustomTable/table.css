@@ -13,7 +13,7 @@ thead {
   font-family: "SF Pro Rounded";
 }
 table th {
-  padding: 5px 0px;
+  padding: 5px;
   background: hsla(0, 0%, 94%, 1);
   color: hsla(260, 4%, 52%, 1);
   font-size: 16px;
@@ -21,7 +21,7 @@ table th {
   white-space: nowrap;
 }
 table td {
-  padding: 5px 0px;
+  padding: 5px;
   white-space: nowrap;
 }
 

@@ -10,6 +10,33 @@ import {
 import { ru } from "date-fns/locale";
 import { twMerge } from "tailwind-merge";
 
+const customLocale: any = {
+  formatDistance: "",
+  formatLong: "",
+  formatRelative: "",
+  localize: {
+    month: (monthIndex: any) => {
+      // Customize month names here
+      const monthNames = [
+        "Январь",
+        "Февраль",
+        "Март",
+        "Апрель",
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август",
+        "Сентябрь",
+        "Октябрь",
+        "Ноябрь",
+        "Декабрь",
+      ];
+      return monthNames[monthIndex];
+    },
+    // Add other localizations if needed
+  },
+};
+
 const dayHours = [
   [
     {
@@ -318,7 +345,7 @@ const DelayCalendar = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <div className="cursor-pointer" onClick={goToPreviousWeek}>
           <svg
             width="12"
@@ -335,8 +362,8 @@ const DelayCalendar = () => {
             />
           </svg>
         </div>
-        <div className="capitalize text-xl font-medium">
-          {format(currentDate, "MMMM yyyy", { locale: ru })}
+        <div className="text-xl font-medium capitalize">
+          {format(currentDate, "MMMM yyyy", { locale: customLocale })}
         </div>
         <div className="cursor-pointer" onClick={goToNextWeek}>
           <svg
@@ -360,9 +387,9 @@ const DelayCalendar = () => {
           {daysOfWeek.map((d, index) => (
             <div
               key={index}
-              className="capitalize flex flex-col justify-center items-center text-base text-[#aaa]"
+              className="flex flex-col items-center justify-center text-base capitalize text-[#aaa]"
             >
-              <div>{format(d, "EEE", { locale: ru })}</div>
+              <div>{format(d, "EEE", { locale: ru }).slice(0, -1)}</div>
               <div>{format(d, "dd", { locale: ru })}</div>
             </div>
           ))}
@@ -374,12 +401,15 @@ const DelayCalendar = () => {
                 <div
                   key={h_idx}
                   className={twMerge(
-                    "text-center text-sm lg:text-base font-semibold cursor-pointer transition-all",
+                    "cursor-pointer text-center text-sm font-semibold transition-[background] lg:text-base mx-auto w-fit min-w-[45px] rounded-[5px] lg:min-w-[73px]",
                     hour.booked && "opacity-20",
-                    hour.id === selectedDate &&
-                      "bg-primary rounded-[5px] text-white w-fit mx-auto min-w-[45px] lg:min-w-[73px]"
+                    hour.id === selectedDate && "bg-primary   text-white "
                   )}
-                  onClick={() => setSelectedDate(hour.id)}
+                  onClick={() => {
+                    if (!hour.booked) {
+                      setSelectedDate(hour.id);
+                    }
+                  }}
                 >
                   {hour.value}
                 </div>

@@ -1,7 +1,91 @@
 import { Table, Tbody, Td, Th, Thead, Tr } from "@/components/ui/CustomTable";
-import React from "react";
+import { Show } from "@/components/ui/Show";
+import { DatePicker, Input } from "antd";
+import React, { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { GrAttachment } from "react-icons/gr";
+
+const TableRow = () => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  return (
+    <Tr>
+      {/* <Td>2140523</Td> */}
+      <Td className="cursor-pointer">
+        <GrAttachment className="text-secondary" />
+      </Td>
+      <Td align="center" className="cursor-pointer">
+        {isEditing ? (
+          <Input
+            size="small"
+            defaultValue={"Кашин М.В."}
+            className="w-[110px]"
+          />
+        ) : (
+          <>Кашин М.В.</>
+        )}
+      </Td>
+      <Td className="cursor-pointer" align="center">
+        {isEditing ? (
+          <Input
+            size="small"
+            defaultValue={"17-й Автобусный парк"}
+            className="w-[110px]"
+          />
+        ) : (
+          <>17-й Автобусный парк</>
+        )}
+      </Td>
+      <Td className="cursor-pointer" align="center">
+        {isEditing ? (
+          <Input
+            size="small"
+            defaultValue={"Выставление счета"}
+            className="w-[110px]"
+          />
+        ) : (
+          <>Выставление счета</>
+        )}
+      </Td>
+      <Td className="cursor-pointer" align="center">
+        {isEditing ? (
+          <DatePicker size="small" className="w-fit" showTime placeholder="" />
+        ) : (
+          <>01.12.2023 19:11</>
+        )}
+      </Td>
+      <Td className="cursor-pointer" align="center">
+        {isEditing ? (
+          <Input
+            size="small"
+            defaultValue={"Выставление счета"}
+            className="w-[110px]"
+          />
+        ) : (
+          <>Составление акта осмотра</>
+        )}
+      </Td>
+      <Td className="cursor-pointer" align="center">
+        {isEditing ? (
+          <Input
+            size="small"
+            defaultValue={"Считать Н.Н."}
+            className="w-[110px]"
+          />
+        ) : (
+          <>Считать Н.Н.</>
+        )}
+      </Td>
+      <Td
+        className="cursor-pointer"
+        align="center"
+        onClick={() => setIsEditing((prev) => !prev)}
+      >
+        <FaEdit />
+      </Td>
+    </Tr>
+  );
+};
 
 const HistoryView = () => {
   return (
@@ -11,11 +95,11 @@ const HistoryView = () => {
           <Tr>
             {/* <Th>№ заявки</Th> */}
             <Th></Th>
-            <Th>Менеджер</Th>
-            <Th>Заказчик</Th>
-            <Th>Этап</Th>
-            <Th>Дата завершения</Th>
-            <Th>Работы</Th>
+            <Th align="center">Менеджер</Th>
+            <Th align="center">Заказчик</Th>
+            <Th align="center">Этап</Th>
+            <Th align="center">Дата завершения</Th>
+            <Th align="center">Работы</Th>
             <Th>Исполнитель 2</Th>
             <Th>
               <FaEdit />
@@ -23,19 +107,7 @@ const HistoryView = () => {
           </Tr>
         </Thead>
         <Tbody>
-          <Tr>
-            {/* <Td>2140523</Td> */}
-            <Td>
-              <GrAttachment className="text-secondary" />
-            </Td>
-            <Td>Кашин М.В.</Td>
-            <Td>17-й Автобусный парк</Td>
-            <Td>Выставление счета</Td>
-            <Td>01.12.2023 19:11</Td>
-            <Td>Составление акта осмотра</Td>
-            <Td>Считать Н.Н.</Td>
-            <Td></Td>
-          </Tr>
+          <TableRow />
         </Tbody>
       </Table>
       <div className="lg:hidden">

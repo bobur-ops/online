@@ -94,14 +94,14 @@ const navItems: NavItem[] = [
       //   url: "/requests/create",
       //   label: "Прием заявки",
       // },
-      // {
-      //   url: "/requests/search",
-      //   label: "Расширенный поиск",
-      // },
-      // {
-      //   url: "/requests/history",
-      //   label: "История отработанных заявок",
-      // },
+      {
+        url: "/requests/search",
+        label: "Расширенный поиск",
+      },
+      {
+        url: "/requests/history",
+        label: "История отработанных заявок",
+      },
     ],
   },
   {

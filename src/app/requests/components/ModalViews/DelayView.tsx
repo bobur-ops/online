@@ -1,4 +1,5 @@
 import { Button, DatePicker, Input, Select } from "antd";
+import ru from "antd/locale/ru_RU";
 import React from "react";
 import DelayCalendar from "../DelayCalendar";
 
@@ -28,7 +29,7 @@ const DelayView = () => {
       </div>
       <div className="mb-5">
         <div className="text-xs mb-2">Новая дата</div>
-        <DatePicker size="large" placeholder="" />
+        <DatePicker locale={ru.DatePicker} size="large" placeholder="" />
       </div>
       <div className="flex justify-center">
         <Button className="min-w-[193px]" danger size="large">
