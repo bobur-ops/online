@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import {
   ComponentPropsWithoutRef,
+  Dispatch,
+  SetStateAction,
   useCallback,
   useEffect,
   useState,
@@ -49,10 +51,12 @@ async function getSubsidiaries(offset: number, limit: number, search: string) {
 
 type SubsidiariesTableProps = ComponentPropsWithoutRef<"div"> & {
   mobile?: boolean;
+  setPreEntryModal: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function SubsidiariesTable({
   mobile,
+  setPreEntryModal,
   ...divProps
 }: SubsidiariesTableProps) {
   const [limit, setLimit] = useState(20);
@@ -188,7 +192,7 @@ export default function SubsidiariesTable({
                           >
                             схема проезда
                           </div>
-                          <div>
+                          <div onClick={() => setPreEntryModal(true)}>
                             <BiCalendar className={styles["calendar"]} />
                           </div>
                         </div>
@@ -230,7 +234,10 @@ export default function SubsidiariesTable({
                         </td>
                         <td align="center">{subsidiary.id}</td>
                         <td align="left">{subsidiary.name}</td>
-                        <td align="center">
+                        <td
+                          align="center"
+                          onClick={() => setPreEntryModal(true)}
+                        >
                           <BiCalendar className={styles["calendar"]} />
                         </td>
                         <td align="center">{subsidiary.townName}</td>

@@ -20,10 +20,13 @@ export default function Dashboard() {
         <FancyButton onClick={() => setOpenCreateRequest(true)}>
           Создать заявку
         </FancyButton>
-        <FancyButton onClick={() => setOpenCreatePreEntry(true)}>
+        {/* <FancyButton onClick={() => setOpenCreatePreEntry(true)}>
           Создать Предварительную запись
-        </FancyButton>
-        <SubsidiariesTable mobile={mobile} />
+        </FancyButton> */}
+        <SubsidiariesTable
+          setPreEntryModal={setOpenCreatePreEntry}
+          mobile={mobile}
+        />
       </Space>
       <CreateRequestEmployee
         open={openCreateRequest}

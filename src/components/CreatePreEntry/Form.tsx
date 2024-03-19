@@ -48,7 +48,7 @@ type FormData = Omit<FormDataSubmit, "mark" | "model"> & {
 type FormProps = {
   /** switch to mobile version, true by default */
   mobile?: boolean;
-  onDone?: () => void
+  onDone?: () => void;
 };
 
 /**
@@ -85,15 +85,18 @@ export default function Form({ mobile, onDone }: FormProps) {
     return action;
   }, []);
 
-  const onSubmit = useCallback(async (values: FormDataSubmit) => {
-    setLoading(true);
-    await new Promise((resolve) => setTimeout(() => resolve(null), 1000));
-    values.phone = parsePhoneNumber(values.phone, "RU").number
-    console.log(values);
-    console.log(files.map((item) => item.name))
-    setLoading(false);
-    onDone?.();
-  }, [files]);
+  const onSubmit = useCallback(
+    async (values: FormDataSubmit) => {
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(() => resolve(null), 1000));
+      values.phone = parsePhoneNumber(values.phone, "RU").number;
+      console.log(values);
+      console.log(files.map((item) => item.name));
+      setLoading(false);
+      onDone?.();
+    },
+    [files]
+  );
 
   return (
     <form
@@ -101,7 +104,9 @@ export default function Form({ mobile, onDone }: FormProps) {
       onSubmit={handleSubmit(onSubmit)}
     >
       <Field>
-        <label>Фамилия<i>*</i></label>
+        <label>
+          Фамилия<i>*</i>
+        </label>
         <Controller
           control={control}
           name="lastName"
@@ -116,7 +121,9 @@ export default function Form({ mobile, onDone }: FormProps) {
         )}
       </Field>
       <Field>
-        <label>Имя<i>*</i></label>
+        <label>
+          Имя<i>*</i>
+        </label>
         <Controller
           control={control}
           name="firstName"
@@ -146,7 +153,9 @@ export default function Form({ mobile, onDone }: FormProps) {
         )}
       </Field>
       <Field>
-        <label>Телефон<i>*</i></label>
+        <label>
+          Телефон<i>*</i>
+        </label>
         <Controller
           control={control}
           name="phone"
@@ -159,7 +168,7 @@ export default function Form({ mobile, onDone }: FormProps) {
         )}
       </Field>
       <Field>
-        <label>Эл.почта<i>*</i></label>
+        <label>Эл.почта</label>
         <Controller
           control={control}
           name="email"
@@ -172,7 +181,9 @@ export default function Form({ mobile, onDone }: FormProps) {
         )}
       </Field>
       <Field>
-        <label>Марка<i>*</i></label>
+        <label>
+          Марка<i>*</i>
+        </label>
         <Controller
           control={control}
           name="mark"
@@ -192,7 +203,7 @@ export default function Form({ mobile, onDone }: FormProps) {
         )}
       </Field>
       <Field>
-        <label>Модель<i>*</i></label>
+        <label>Модель</label>
         <Controller
           control={control}
           name="model"
@@ -212,7 +223,7 @@ export default function Form({ mobile, onDone }: FormProps) {
         )}
       </Field>
       <Field>
-        <label>Номер полиса<i>*</i></label>
+        <label>Номер полиса</label>
         <Controller
           control={control}
           name="polisNumber"
@@ -227,7 +238,7 @@ export default function Form({ mobile, onDone }: FormProps) {
         )}
       </Field>
       <Field>
-        <label>Номер убытка<i>*</i></label>
+        <label>Номер убытка</label>
         <Controller
           control={control}
           name="deptNumber"
@@ -240,7 +251,9 @@ export default function Form({ mobile, onDone }: FormProps) {
         )}
       </Field>
       <Field>
-        <label>Гос. номер<i>*</i></label>
+        <label>
+          Гос. номер<i>*</i>
+        </label>
         <Controller
           control={control}
           name="gosNumber"
@@ -268,7 +281,9 @@ export default function Form({ mobile, onDone }: FormProps) {
         )}
       </Field>
       <FilePicker value={files} onChange={setFiles} mobile={mobile} />
-      <FancyButton className="justify-self-center mt-4" loading={loading}>Сохранить</FancyButton>
+      <FancyButton className="justify-self-center mt-4" loading={loading}>
+        Сохранить
+      </FancyButton>
     </form>
   );
 }
