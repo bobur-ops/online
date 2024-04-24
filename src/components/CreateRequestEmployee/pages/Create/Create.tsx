@@ -9,6 +9,8 @@ import LegalEntitySelector from "./ui/LegalEntitySelector";
 import CustomerSelector from "./ui/CustomerSelector";
 import Field from "../../ui/Field";
 import clsx from "clsx";
+import DamageSelector from "./ui/DamageSelector";
+import CusSelect from "@/components/ui/CusSelect";
 
 const schema = z.object({
   legalEntityId: z.string({
@@ -18,6 +20,10 @@ const schema = z.object({
   customerId: z.string({
     invalid_type_error: "Необходимо выбрать юридическое лицо",
     required_error: "Необходимо выбрать заказчика",
+  }),
+  damageId: z.string({
+    invalid_type_error: "Необходимо выбрать повреждение",
+    required_error: "Необходимо выбрать повреждение",
   }),
   requestType: z.string({
     invalid_type_error: "Необходимо выбрать тип заявки",
@@ -35,12 +41,13 @@ type FormData = {
   customerId: string | null;
   requestType: string | null;
   inspectionType: string | null;
+  damageId: string;
 };
 
 type CreateProps = {
-  mobile?: boolean
-  onDone?: () => void
-}
+  mobile?: boolean;
+  onDone?: () => void;
+};
 
 export default function Create({ mobile, onDone }: CreateProps) {
   const { control, formState, handleSubmit } = useForm<
@@ -63,7 +70,7 @@ export default function Create({ mobile, onDone }: CreateProps) {
     setLoading(true);
     await new Promise((resolve) => setTimeout(() => resolve(null), 1000));
     console.log(values);
-    setLoading(false)
+    setLoading(false);
     onDone?.();
   }, []);
 
@@ -77,7 +84,9 @@ export default function Create({ mobile, onDone }: CreateProps) {
           <Controller
             control={control}
             name="legalEntityId"
-            render={({ field }) => <LegalEntitySelector {...field} fullWidth mobile={mobile} />}
+            render={({ field }) => (
+              <LegalEntitySelector {...field} fullWidth mobile={mobile} />
+            )}
           />
           {formState.errors.legalEntityId && (
             <div className="text-error text-center">
@@ -92,13 +101,48 @@ export default function Create({ mobile, onDone }: CreateProps) {
           <Controller
             control={control}
             name="customerId"
-            render={({ field }) => <CustomerSelector {...field} fullWidth mobile={mobile} />}
+            render={({ field }) => (
+              <CustomerSelector {...field} fullWidth mobile={mobile} />
+            )}
           />
           {formState.errors.customerId && (
             <div className="text-error text-center">
               {formState.errors.customerId.message}
             </div>
           )}
+        </Field>
+        <Field>
+          <label>
+            Повреждение<i>*</i>
+          </label>
+          <Controller
+            control={control}
+            name="damageId"
+            render={({ field }) => (
+              <DamageSelector {...field} fullWidth mobile={mobile} />
+            )}
+          />
+          {formState.errors.damageId && (
+            <div className="text-error text-center">
+              {formState.errors.damageId.message}
+            </div>
+          )}
+        </Field>
+        <Field className="my-5">
+          <div className="w-fit mx-auto">
+            <label>
+              Количество<i>*</i>
+            </label>
+            <CusSelect
+              options={[
+                { value: "1", label: "1" },
+                { value: "2", label: "2" },
+                { value: "3", label: "3" },
+                { value: "4", label: "4" },
+                { value: "5", label: "5" },
+              ]}
+            />
+          </div>
         </Field>
         <div className={clsx(styles["bottom-grid"], mobile && "mobile")}>
           <div>
@@ -152,7 +196,9 @@ export default function Create({ mobile, onDone }: CreateProps) {
             )}
           </div>
         </div>
-        <FancyButton loading={loading} className="mt-4 mx-auto">Подтвердить</FancyButton>
+        <FancyButton loading={loading} className="mt-4 mx-auto">
+          Подтвердить
+        </FancyButton>
       </Space>
     </form>
   );

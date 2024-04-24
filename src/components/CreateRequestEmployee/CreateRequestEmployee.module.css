@@ -1,7 +1,7 @@
 .root {
   --offset: 20px;
   --p: 20px;
-  width: min(100%, 800px);
+  width: min(100%, 1200px);
   height: fit-content;
   padding: var(--offset);
   box-sizing: border-box;
@@ -48,7 +48,6 @@
   background: rgb(var(--primary-rgb));
   color: white;
 }
-
 
 .desktop-nav > button:not(:last-child) {
   margin-bottom: var(--p);
