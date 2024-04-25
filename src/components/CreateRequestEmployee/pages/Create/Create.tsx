@@ -111,41 +111,8 @@ export default function Create({ mobile, onDone }: CreateProps) {
             </div>
           )}
         </Field>
-        <Field>
-          <label>
-            Повреждение<i>*</i>
-          </label>
-          <Controller
-            control={control}
-            name="damageId"
-            render={({ field }) => (
-              <DamageSelector {...field} fullWidth mobile={mobile} />
-            )}
-          />
-          {formState.errors.damageId && (
-            <div className="text-error text-center">
-              {formState.errors.damageId.message}
-            </div>
-          )}
-        </Field>
-        <Field className="my-5">
-          <div className="w-fit mx-auto">
-            <label>
-              Количество<i>*</i>
-            </label>
-            <CusSelect
-              options={[
-                { value: "1", label: "1" },
-                { value: "2", label: "2" },
-                { value: "3", label: "3" },
-                { value: "4", label: "4" },
-                { value: "5", label: "5" },
-              ]}
-            />
-          </div>
-        </Field>
         <div className={clsx(styles["bottom-grid"], mobile && "mobile")}>
-          <div>
+          <div className="mx-auto col-span-2">
             <Field>
               <label>
                 Тип заявки<i>*</i>
@@ -166,32 +133,6 @@ export default function Create({ mobile, onDone }: CreateProps) {
             {formState.errors.requestType && (
               <div className="text-error text-center">
                 {formState.errors.requestType.message}
-              </div>
-            )}
-          </div>
-          <div>
-            <Field>
-              <label>
-                Тип осмотра<i>*</i>
-              </label>
-              <Controller
-                control={control}
-                name="inspectionType"
-                render={({ field }) => (
-                  <Radio.Group value={field.value} onChange={field.onChange}>
-                    <Space direction="vertical">
-                      <Radio value="ПЕРВИЧНЫЙ">Первичный осмотр</Radio>
-                      <Radio value="ДОПОЛНИТЕЛЬНЫЙ">
-                        Дополнительный осмотр
-                      </Radio>
-                    </Space>
-                  </Radio.Group>
-                )}
-              />
-            </Field>
-            {formState.errors.inspectionType && (
-              <div className="text-error text-center">
-                {formState.errors.inspectionType.message}
               </div>
             )}
           </div>

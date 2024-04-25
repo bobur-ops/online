@@ -22,18 +22,13 @@ const schema = z.object({
       (value) => isValidPhoneNumber(value, "RU"),
       "Телефон указан неверно"
     ),
-  email: z
-    .string()
-    .min(1, "Необходимо указать электронную почту")
-    .email("Неверный формат электронной почты"),
+  email: z.string().optional(),
   mark: z.string({
     invalid_type_error: "Необходимо указать марку",
   }),
-  model: z.string({
-    invalid_type_error: "Необходимо указать модель",
-  }),
-  polisNumber: z.string().min(1, "Необходимо ввести номер полиса"),
-  deptNumber: z.string().min(1, "Необходимо ввести номер убытка"),
+  model: z.string().optional().nullable(),
+  polisNumber: z.string().optional(),
+  deptNumber: z.string().optional(),
   gosNumber: z.string().min(1, "Необходимо ввести гос. номер"),
   comment: z.string().optional(),
   filesCount: z.number(),
