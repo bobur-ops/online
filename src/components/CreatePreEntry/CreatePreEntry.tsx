@@ -4,6 +4,10 @@ import clsx from "clsx";
 import CusPaper from "../ui/CusPaper";
 import MobileNav from "../ui/MobileNav";
 import Form from "./Form";
+import { useBoolean } from "usehooks-ts";
+import DelayCalendar from "@/app/requests/components/DelayCalendar";
+import { Button } from "antd";
+import FancyButton from "../ui/FancyButton";
 
 type CreatePreEntryProps = {
   open: boolean;
@@ -19,6 +23,8 @@ export default function CreatePreEntry({
   onClose,
   mobile,
 }: CreatePreEntryProps) {
+  const isCalendarView = useBoolean(true);
+
   return (
     <CustomModal open={open} onClose={onClose}>
       <div className={clsx(styles["root"], mobile && "mobile")}>
@@ -29,9 +35,22 @@ export default function CreatePreEntry({
           onPageChange={() => {}}
           onCloseButtonClick={onClose}
         />
-        <CusPaper>
-          <Form mobile={mobile} onDone={onClose} />
-        </CusPaper>
+        {isCalendarView.value ? (
+          <CusPaper>
+            <div className="p-3">
+              <DelayCalendar />
+              <div className="mt-5 flex justify-center ">
+                <FancyButton onClick={() => isCalendarView.setFalse()}>
+                  Дальше
+                </FancyButton>
+              </div>
+            </div>
+          </CusPaper>
+        ) : (
+          <CusPaper>
+            <Form mobile={mobile} onDone={onClose} />
+          </CusPaper>
+        )}
       </div>
     </CustomModal>
   );
