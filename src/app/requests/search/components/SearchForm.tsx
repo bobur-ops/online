@@ -38,7 +38,7 @@ const SearchForm = () => {
         />
       </div>
       <div className="hidden lg:grid grid-cols-3 items-center">
-        <div>Сто:</div>
+        <div>СТО:</div>
 
         <Select
           options={[{ value: "action1", label: <span>Действие 1</span> }]}

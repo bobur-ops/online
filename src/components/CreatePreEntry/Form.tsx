@@ -13,7 +13,7 @@ import { useCallback, useReducer, useState } from "react";
 import FilePicker from "./fragments/FilePicker";
 
 const schema = z.object({
-  lastName: z.string().min(1, "Необходимо указать фамилию"),
+  lastName: z.string().optional(),
   firstName: z.string().min(1, "Необходимо указать имя"),
   patronymic: z.string(),
   phone: z
@@ -99,9 +99,7 @@ export default function Form({ mobile, onDone }: FormProps) {
       onSubmit={handleSubmit(onSubmit)}
     >
       <Field>
-        <label>
-          Фамилия<i>*</i>
-        </label>
+        <label>Фамилия</label>
         <Controller
           control={control}
           name="lastName"

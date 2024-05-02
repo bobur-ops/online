@@ -19,7 +19,7 @@ const AgreementView = () => {
           size="large"
           placeholder="Выберите дату.."
           locale={locale.DatePicker}
-          showTime
+          showTime={{ format: "HH:mm" }}
         />
       </div>
       <div className="mb-5">
