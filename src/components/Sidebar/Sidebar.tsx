@@ -22,20 +22,20 @@ const navItems: NavItem[] = [
   //   url: "/dashboard",
   //   label: "Главная страница"
   // },
-  {
-    url: "/search",
-    label: "Поиск",
-    children: [
-      {
-        url: "/search/simple",
-        label: "Простой",
-      },
-      {
-        url: "/search/advanced",
-        label: "Расширенный",
-      },
-    ],
-  },
+  // {
+  //   url: "/search",
+  //   label: "Поиск",
+  //   children: [
+  //     {
+  //       url: "/search/simple",
+  //       label: "Простой",
+  //     },
+  //     {
+  //       url: "/search/advanced",
+  //       label: "Расширенный",
+  //     },
+  //   ],
+  // },
   {
     url: "/personal-account",
     label: "Личный кабинет",
@@ -58,15 +58,11 @@ const navItems: NavItem[] = [
       // },
       {
         url: "/personal-account/progress-ratings",
-        label: "Заявки на обработку",
+        label: "Заявки на обработке",
       },
       {
         url: "/personal-account/create-claim",
         label: "Создать претензию",
-      },
-      {
-        url: "/personal-account/journal-blocked-entries",
-        label: "Журнал блокировок записи осмотров",
       },
       // {
       //   url: "/personal-account/claims/create",
@@ -99,8 +95,16 @@ const navItems: NavItem[] = [
         label: "Расширенный поиск",
       },
       {
+        url: "/personal-account/claims/create",
+        label: "Создать претензию",
+      },
+      {
         url: "/requests/history",
         label: "История отработанных заявок",
+      },
+      {
+        url: "/personal-account/journal-blocked-entries",
+        label: "Журнал блокировок",
       },
     ],
   },
